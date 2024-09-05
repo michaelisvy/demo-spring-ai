@@ -21,7 +21,7 @@ public class MovieService {
                             .build();
     }
 
-    public String generateResponse(String message) {
+    public String generateSimpleResponse(String message) {
         return this.chatClient.prompt()
                 .system("You are a helpful assistant writing in formal English")
                 .user(message)

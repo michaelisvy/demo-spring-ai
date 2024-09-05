@@ -11,10 +11,10 @@ import java.nio.charset.Charset;
 @Service
 public class OlympicsService {
 
-    @Value("classpath:/lab-02-olympics/olympic-sports-template.st")
+    @Value("classpath:/olympics/olympic-sports-template.st")
     private Resource queryTemplate;
 
-    @Value("classpath:/lab-02-olympics/olympic-sports.txt")
+    @Value("classpath:/olympics/olympic-sports.txt")
     private Resource olympicsSportsResource;
 
     private final ChatClient chatClient;
