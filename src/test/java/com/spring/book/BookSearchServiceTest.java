@@ -15,7 +15,7 @@ class BookSearchServiceTest {
 
     @Test
     void shouldAskQuestion() {
-        var response = this.bookSearchService.answerQuestion("who is the murderer?");
+        var response = this.bookSearchService.answerQuestion("who attempted to kill Henri?");
         logger.info(response);
     }
 }

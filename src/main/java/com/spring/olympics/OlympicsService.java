@@ -1,6 +1,7 @@
 package com.spring.olympics;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class OlympicsService {
     private final ChatClient chatClient;
 
     public OlympicsService(ChatClient.Builder builder) {
-        this.chatClient = builder.build();
+        this.chatClient = builder.defaultAdvisors(new SimpleLoggerAdvisor()).build();
     }
 
     public String findOlympicSports() throws IOException {

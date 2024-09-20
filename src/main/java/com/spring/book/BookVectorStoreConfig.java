@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.reader.TextReader;
@@ -28,7 +29,7 @@ class BookVectorStoreConfig {
 
     public static final int NUMBER_OF_TOKENS_PER_VECTOR = 350;
     private final String VECTOR_STORE_FILE = "vectorstore.json";
-    @Value("classpath:book/crime-in-paris.txt")
+    @Value("classpath:book/murderer-in-paris.txt")
     private Resource bookContent;
 
     private static final Logger logger = LoggerFactory.getLogger(BookVectorStoreConfig.class);
@@ -37,7 +38,9 @@ class BookVectorStoreConfig {
     @Bean
     ChatClient vectorStoreChatClient(ChatClient.Builder builder , VectorStore vectorStore) {
         return builder
-                .defaultAdvisors(new QuestionAnswerAdvisor(vectorStore, SearchRequest.defaults().withTopK(1)))
+                .defaultAdvisors(
+                        new QuestionAnswerAdvisor(vectorStore, SearchRequest.defaults().withTopK(1)),
+                        new SimpleLoggerAdvisor())
                 .build();
     }
     @Bean

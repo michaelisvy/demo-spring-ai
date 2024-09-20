@@ -3,6 +3,7 @@ package com.spring.movie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -18,6 +19,7 @@ public class MovieService {
     public MovieService(ChatClient.Builder builder) {
         this.chatClient = builder
                             .defaultSystem("You are a helpful assistant writing in formal English")
+                            .defaultAdvisors(new SimpleLoggerAdvisor())
                             .build();
     }
 
