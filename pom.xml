@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.petclinic</groupId>
-	<artifactId>spring-ai-samples</artifactId>
+	<artifactId>demo-spring-ai</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>petclinic-prompt</name>
 	<description>Demo project for Spring Boot</description>

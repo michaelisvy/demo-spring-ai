@@ -32,6 +32,9 @@ class BookVectorStoreConfig {
     @Value("classpath:book/murderer-in-paris.txt")
     private Resource bookContent;
 
+    @Value("${spring.ai.openai.chat.options.model}")
+    private String modelName;
+
     private static final Logger logger = LoggerFactory.getLogger(BookVectorStoreConfig.class);
 
 
@@ -52,10 +55,12 @@ class BookVectorStoreConfig {
             logger.info("Vector Store File Exists,");
             simpleVectorStore.load(vectorStoreFile);
         } else {
-            logger.info("Vector Store File Does Not Exist, loading documents");
+            logger.info("Vector Store File Does Not Exist, it will be created");
             List<Document> splitDocuments = buildSplitDocuments(this.bookContent);
             simpleVectorStore.add(splitDocuments);
+            logger.info("Vectors have been generated using {}", this.modelName);
             simpleVectorStore.save(vectorStoreFile);
+            logger.info("Vectors have been saved");
         }
         return simpleVectorStore;
     }
