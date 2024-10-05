@@ -15,6 +15,9 @@ class ImageService {
     @Value("classpath:images/mic-profile.png")
     private Resource imageResourcePhoto;
 
+    @Value("classpath:images/scientist.jpg")
+    private Resource imageResourceScientist;
+
     private final ChatClient chatClient;
 
     public ImageService(ChatClient.Builder builder) {
@@ -36,6 +39,16 @@ class ImageService {
                 .user(
                         userSpec -> userSpec.text("Can you describe this person?")
                                 .media(MimeTypeUtils.IMAGE_PNG, this.imageResourcePhoto)
+                )
+                .call()
+                .content();
+    }
+
+    public String describeScientist() {
+        return this.chatClient.prompt()
+                .user(
+                        userSpec -> userSpec.text("can you describe this person? And what is written on top of his head?")
+                                .media(MimeTypeUtils.IMAGE_PNG, this.imageResourceScientist)
                 )
                 .call()
                 .content();

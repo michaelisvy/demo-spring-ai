@@ -24,4 +24,10 @@ class ImageServiceTest {
         var response = this.imageService.describePerson();
         logger.info(response);
     }
+
+    @Test
+    void shouldFindScientist() {
+        var response = this.imageService.describeScientist();
+        logger.info(response);
+    }
 }
