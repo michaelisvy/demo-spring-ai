@@ -13,4 +13,7 @@
 ## Process an image
 * See [ImageService](src/main/java/com/spring/image/ImageService.java) and [ImageServiceTest](src/test/java/com/spring/image/ImageServiceTest.java)
 
+## Retrieval Augmented Generation with Excel and PDF files
+* See [MusicWithContextService](src/main/java/com/spring/music/MusicWithContextService.java) and [MusicWithContextServiceTest](src/test/java/com/spring/music/MusicWithContextServiceTest.java)
+
 
