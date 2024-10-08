@@ -1,5 +1,7 @@
 package com.spring.music;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.tika.TikaDocumentReader;
@@ -13,7 +15,10 @@ import java.util.stream.Collectors;
 @Service
 class MusicWithContextService {
 
-    @Value("classpath:music/rock-albums.xlsx")
+    private static final Logger logger = LoggerFactory.getLogger(MusicWithContextService.class);
+
+
+    @Value("classpath:music/rock-albums.pdf")
     // replace it with @Value("classpath:music/rock-albums.pdf") in order to test reading from a PDF file
     private Resource rockAlbumsResource;
 
@@ -35,9 +40,11 @@ class MusicWithContextService {
     }
 
     public String findAlbumsFromArtist() {
+        var text = loadDocumentText();
+        logger.info(text);
         return this.chatClient.prompt()
                 .user(userSpec -> userSpec.text(this.template)
-                        .param("context", loadDocumentText())
+                        .param("context", text)
                         .param("question", "Which are the albums from Foo Fighters?")
                 )
                 .call().content();
