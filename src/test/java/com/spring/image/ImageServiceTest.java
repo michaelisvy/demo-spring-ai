@@ -20,13 +20,7 @@ class ImageServiceTest {
     }
 
     @Test
-    void shouldDescribePerson() {
-        var response = this.imageService.describePerson();
-        logger.info(response);
-    }
-
-    @Test
-    void shouldFindScientist() {
+    void shouldDescribeScientist() {
         var response = this.imageService.describeScientist();
         logger.info(response);
     }

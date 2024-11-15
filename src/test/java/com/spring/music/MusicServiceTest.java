@@ -29,7 +29,7 @@ class MusicServiceTest {
         this.logger.info(response.toString());
     }
 
-    @Test
+    @Test // expected to fail when using local model llama 3.2
     void shouldFindFiveBestSongsWithStyle() {
         var response = this.musicService.findFiveBestSongsWithStyle("Folk guitar");
         this.logger.info(response.toString());

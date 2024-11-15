@@ -20,5 +20,11 @@
 ## Using an in-memory Vector Database
 * See [BookSearchService](src/main/java/com/spring/book/BookSearchService.java) and [BookSearchServiceTest](src/test/java/com/spring/book/BookSearchServiceTest.java)
 
+## Using a local model
+* Install Ollama and run it locally
+* Inside [application.properties](src/main/resources/application.properties), configure the model that you are running inside Ollama (default is `spring.ai.ollama.chat.model=llama3.2`)
+* Inside [pom.xml](src/main/resources/pom.xml), change the dependency `spring-ai-openai-spring-boot-starter` into `spring-ai-ollama-spring-boot-starter`
+* Run all the tests (some will not be working as some of the features are not supported by local models)
+
 
 

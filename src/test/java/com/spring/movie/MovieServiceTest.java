@@ -28,7 +28,7 @@ public class MovieServiceTest {
     }
 
     @Test
-    public void shouldRecommendMovieAboutComputers() {
+    public void shouldUseParameters() {
         var response = this.movieService.recommendMovie("computers");
         this.logger.info(response);
         assertThat(response).isNotEmpty();
