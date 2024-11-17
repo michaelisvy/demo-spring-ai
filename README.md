@@ -18,7 +18,7 @@
 * See [MusicWithContextService](src/main/java/com/spring/music/MusicWithContextService.java) and [MusicWithContextServiceTest](src/test/java/com/spring/music/MusicWithContextServiceTest.java)
 
 ## Using an in-memory Vector Database
-* See [BookSearchService](src/main/java/com/spring/book/BookSearchService.java) and [BookSearchServiceTest](src/test/java/com/spring/book/BookSearchServiceTest.java)
+* See [BookSearchService](src/main/java/com/spring/vector/BookSearchService.java) and [BookSearchServiceTest](src/test/java/com/spring/book/BookSearchServiceTest.java)
 
 ## Using a local model
 * Install Ollama and run it locally

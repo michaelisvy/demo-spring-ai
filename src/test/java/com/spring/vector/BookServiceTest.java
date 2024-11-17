@@ -1,4 +1,4 @@
-package com.spring.book;
+package com.spring.vector;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -7,15 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BookSearchServiceTest {
+class BookServiceTest {
     @Autowired
-    private BookSearchService bookSearchService;
+    private BookService bookService;
 
-    private static final Logger logger = LoggerFactory.getLogger(BookSearchService.class);
+    private static final Logger logger = LoggerFactory.getLogger(BookService.class);
 
     @Test
     void shouldAskQuestion() {
-        var response = this.bookSearchService.answerQuestion("who attempted to kill Henri?");
+        var response = this.bookService.answerQuestion("who attempted to kill Henri?");
         logger.info(response);
     }
 }
