@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
 
 /**
  * This class has been imported from Craig Wall's LoggingInterceptor: https://github.com/habuma/logging-interceptor
+ * # It provides better logging indentation compared to the default Spring AI Logging advisor (called SimpleLoggerAdvisor)
+ * # Will be removed once this issue will be fixed: https://github.com/spring-projects/spring-ai/issues/1364
  */
 @Configuration
 public class HttpLoggingConfiguration {
