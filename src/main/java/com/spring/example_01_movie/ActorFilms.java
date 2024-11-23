@@ -1,4 +1,4 @@
-package com.spring.movie;
+package com.spring.example_01_movie;
 
 import java.util.List;
 

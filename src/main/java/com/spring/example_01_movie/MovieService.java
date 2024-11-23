@@ -1,4 +1,4 @@
-package com.spring.movie;
+package com.spring.example_01_movie;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

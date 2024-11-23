@@ -1,4 +1,4 @@
-package com.spring.vector;
+package com.spring.example_05_vector;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

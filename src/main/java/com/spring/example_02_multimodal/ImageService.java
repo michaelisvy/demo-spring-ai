@@ -1,4 +1,4 @@
-package com.spring.image;
+package com.spring.example_02_multimodal;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Value;

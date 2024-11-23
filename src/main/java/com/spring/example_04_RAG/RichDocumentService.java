@@ -1,4 +1,4 @@
-package com.spring.music;
+package com.spring.example_04_RAG;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,39 +13,40 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-class MusicWithContextService {
+class RichDocumentService {
 
-    private static final Logger logger = LoggerFactory.getLogger(MusicWithContextService.class);
+    private static final Logger logger = LoggerFactory.getLogger(RichDocumentService.class);
 
 
-    @Value("classpath:music/rock-albums.pdf")
-    // replace it with @Value("classpath:music/rock-albums.pdf") in order to test reading from a PDF file
-    private Resource rockAlbumsResource;
+    @Value("classpath:document/slides-sample-diagrams.pdf")
+    private Resource documentResource;
 
-    @Value("classpath:music/template.st")
+    @Value("classpath:document/template.st")
     private Resource template;
 
     private ChatClient chatClient;
 
-    public MusicWithContextService(ChatClient.Builder builder) {
+    public RichDocumentService(ChatClient.Builder builder) {
         this.chatClient = builder.build();
     }
 
     private String loadDocumentText() {
-        TikaDocumentReader tikaDocumentReader = new TikaDocumentReader(this.rockAlbumsResource);
+        TikaDocumentReader tikaDocumentReader = new TikaDocumentReader(this.documentResource);
         List<Document> documents = tikaDocumentReader.read();
 
         return documents.stream().map(Document::getContent).collect(Collectors.joining("\n\n"));
 
     }
 
-    public String findAlbumsFromArtist() {
+    public String findData() {
         var text = loadDocumentText();
         logger.info(text);
         return this.chatClient.prompt()
                 .user(userSpec -> userSpec.text(this.template)
                         .param("context", text)
-                        .param("question", "Which are the albums from Foo Fighters?")
+                        //.param("question", "Based on the third slide, is StudentDTO a Spring component?")
+                        .param("question", "Based on the fourth slide, what is the relationship between OracleStudentRepository and StudentRepository?")
+                        //.param("question", "Based on the first slide, which are the Spring projects by the community?")
                 )
                 .call().content();
     }

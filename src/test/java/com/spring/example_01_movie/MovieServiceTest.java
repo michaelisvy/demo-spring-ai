@@ -1,4 +1,4 @@
-package com.spring.movie;
+package com.spring.example_01_movie;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

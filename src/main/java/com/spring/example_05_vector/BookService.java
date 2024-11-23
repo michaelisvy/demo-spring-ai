@@ -1,4 +1,4 @@
-package com.spring.vector;
+package com.spring.example_05_vector;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;

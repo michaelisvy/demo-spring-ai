@@ -1,4 +1,4 @@
-package com.spring.memory;
+package com.spring.example_03_chatMemory;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

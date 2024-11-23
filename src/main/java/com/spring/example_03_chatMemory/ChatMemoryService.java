@@ -1,4 +1,4 @@
-package com.spring.memory;
+package com.spring.example_03_chatMemory;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
