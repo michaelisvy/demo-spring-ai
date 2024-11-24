@@ -6,19 +6,22 @@
 * See [application.properties](src/main/resources/application.properties) for more details
 
 ## Calls to the ChatClient (simple call, parameters, entities)
-* See [MusicService](src/main/java/com/spring/example_04_RAG/MusicService.java) and [MusicServiceTest](src/test/java/com/spring/example_04_RAG/MusicServiceTest.java)
-
-## usage of ChatMemory
-* See [ChatMemory](src/main/java/com/spring/example_03_chatMemory/ChatMemoryService.java) and [ChatMemoryTest](src/test/java/com/spring/example_03_chatMemory/ChatMemoryServiceTest.java)
+* See [MovieService](src/main/java/com/spring/example_01_movie/MovieService.java) and [MusicServiceTest](src/test/java/com/spring/example_01_movie/MovieServiceTest.java)
 
 ## Use an Image as Input and ask questions about the image
 * See [ImageService](src/main/java/com/spring/example_02_multimodal/ImageService.java) and [ImageServiceTest](src/test/java/com/spring/example_02_multimodal/ImageServiceTest.java)
 
+## usage of ChatMemory
+* See [ChatMemory](src/main/java/com/spring/example_03_chatMemory/ChatMemoryService.java) and [ChatMemoryTest](src/test/java/com/spring/example_03_chatMemory/ChatMemoryServiceTest.java)
+
 ## Retrieval Augmented Generation with Excel and PDF files
-* See [MusicWithContextService](src/main/java/com/spring/example_04_RAG/MusicWithContextService.java) and [MusicWithContextServiceTest](src/test/java/com/spring/example_04_RAG/MusicWithContextServiceTest.java)
+* See [MusicWithContextService](src/main/java/com/spring/example_04_RAG/MusicService.java) and [MusicWithContextServiceTest](src/test/java/com/spring/example_04_RAG/MusicServiceTest.java)
+* 
+## Retrieval Augmented Generation with a PDF file that contains mixed text and images content
+* See [MusicWithContextService](src/main/java/com/spring/example_04_RAG/RichDocumentService.java) and [MusicWithContextServiceTest](src/test/java/com/spring/example_04_RAG/RichDocumentServiceTest.java)
 
 ## Using an in-memory Vector Database
-* See [BookService](src/main/java/com/spring/example_05_vector/BookService.java) and [BookServiceTest](src/test/java/com/spring/book/BookServiceTest.java)
+* See [BookService](src/main/java/com/spring/example_05_vector/BookService.java) and [BookServiceTest](src/test/java/com/spring/example_05_vector/BookServiceTest.java)
 
 ## Using a local model
 * Install Ollama and run it locally
