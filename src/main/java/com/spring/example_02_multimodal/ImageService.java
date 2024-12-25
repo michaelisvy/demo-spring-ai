@@ -12,9 +12,6 @@ class ImageService {
     @Value("classpath:images/singapore-weather.png")
     private Resource imageResourceWeather;
 
-    @Value("classpath:images/scientist.jpg")
-    private Resource imageResourceScientist;
-
     private final ChatClient chatClient;
 
     public ImageService(ChatClient.Builder builder) {
@@ -26,16 +23,6 @@ class ImageService {
                 .user(
                         userSpec -> userSpec.text("what will be the weather like on Tuesday")
                                             .media(MimeTypeUtils.IMAGE_PNG, this.imageResourceWeather)
-                )
-                .call()
-                .content();
-    }
-
-    public String describeScientist() {
-        return this.chatClient.prompt()
-                .user(
-                        userSpec -> userSpec.text("can you describe this person? And what is written on top of his head?")
-                                .media(MimeTypeUtils.IMAGE_PNG, this.imageResourceScientist)
                 )
                 .call()
                 .content();

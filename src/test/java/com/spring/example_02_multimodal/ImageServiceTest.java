@@ -18,10 +18,4 @@ class ImageServiceTest {
         var response = this.imageService.analyseWeather();
         logger.info(response);
     }
-
-    @Test
-    void shouldDescribeScientist() {
-        var response = this.imageService.describeScientist();
-        logger.info(response);
-    }
 }
