@@ -1,4 +1,4 @@
-package com.spring.example_06_function;
+package com.spring.example_04_function;
 
 import java.util.function.Function;
 

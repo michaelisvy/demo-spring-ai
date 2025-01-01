@@ -1,4 +1,4 @@
-package com.spring.example_06_function;
+package com.spring.example_04_function;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
