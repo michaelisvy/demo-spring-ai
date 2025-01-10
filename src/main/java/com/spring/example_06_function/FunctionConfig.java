@@ -1,4 +1,4 @@
-package com.spring.example_04_function;
+package com.spring.example_06_function;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

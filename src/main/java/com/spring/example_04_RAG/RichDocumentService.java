@@ -1,4 +1,4 @@
-package com.spring.example_05_RAG;
+package com.spring.example_04_RAG;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

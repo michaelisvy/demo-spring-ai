@@ -1,4 +1,4 @@
-package com.spring.example_05_RAG;
+package com.spring.example_04_RAG;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -7,16 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RichDocumentServiceTest {
+class MusicServiceTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(RichDocumentServiceTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(MusicServiceTest.class);
 
     @Autowired
-    private RichDocumentService richDocumentService;
+    private MusicService musicService;
 
     @Test
-    void shouldFindData() {
-        var response = this.richDocumentService.findData();
+    void shouldFindSongsFromArtist() {
+        var response = this.musicService.findAlbumsFromArtist();
         this.logger.info(response);
     }
 }

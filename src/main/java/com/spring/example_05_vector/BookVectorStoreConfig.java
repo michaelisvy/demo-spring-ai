@@ -1,4 +1,4 @@
-package com.spring.example_06_vector;
+package com.spring.example_05_vector;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

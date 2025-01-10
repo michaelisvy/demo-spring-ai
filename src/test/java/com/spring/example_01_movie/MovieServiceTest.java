@@ -36,19 +36,20 @@ public class MovieServiceTest {
 
     @Test
     public void shouldUseEntity() {
-        var input = "Generate the 10 most popular movies staring Bruce Willis";
-        var actorFilms = this.movieService.findActorFilms(input);
-        assertThat(actorFilms).isNotNull();
-        assertThat(actorFilms.movies()).isNotEmpty();
-        this.logger.info(actorFilms.actor());
-        this.logger.info(actorFilms.movies().toString());
+        var input = "Generate the most popular movie staring Bruce Willis";
+        Movie movie = this.movieService.findMovie(input);
+        assertThat(movie).isNotNull();
+        assertThat(movie.title()).isNotEmpty();
+        assertThat(movie.actors()).isNotEmpty();
+        this.logger.info(movie.title());
+        this.logger.info(movie.actors().toString());
     }
 
     @Test
     public void shouldUseEntityList() {
-        var input = "Generate the 10 most popular movies for Eddie Murphy and Bruce Willis";
-        var actorFilmsList = this.movieService.findActorFilmsList(input);
-        assertThat(actorFilmsList).hasSize(2);
+        var input = "Generate the 10 most popular movies starring Bruce Willis";
+        var actorFilmsList = this.movieService.findMovieList(input);
+        assertThat(actorFilmsList).hasSize(10);
         this.logger.info(actorFilmsList.toString());
     }
 }

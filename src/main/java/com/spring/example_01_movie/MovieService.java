@@ -31,14 +31,14 @@ public class MovieService {
                 .content();
     }
 
-    public ActorFilms findActorFilms(String message) {
+    public Movie findMovie(String message) {
         return this.chatClient.prompt()
                 .user(message)
                 .call()
-                .entity(ActorFilms.class);
+                .entity(Movie.class);
     }
 
-    public List<ActorFilms> findActorFilmsList(String message) {
+    public List<Movie> findMovieList(String message) {
         return this.chatClient.prompt()
                 .user(message)
                 .call()
