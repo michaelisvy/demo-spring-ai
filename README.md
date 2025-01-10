@@ -13,18 +13,19 @@
 
 ## usage of ChatMemory
 * See [ChatMemory](src/main/java/com/spring/example_03_chatMemory/ChatMemoryService.java) and [ChatMemoryTest](src/test/java/com/spring/example_03_chatMemory/ChatMemoryServiceTest.java)
-* 
-## usage of Callback Functions
-* See [WeatherAggregatorService](src/main/java/com/spring/example_06_function/WeatherAggregatorService.java) and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_06_function/WeatherAggregatorServiceTest.java)
 
 ## Retrieval Augmented Generation with Excel and PDF files
 * See [MusicWithContextService](src/main/java/com/spring/example_04_RAG/MusicService.java) and [MusicWithContextServiceTest](src/test/java/com/spring/example_04_RAG/MusicServiceTest.java)
-* 
+
 ## Retrieval Augmented Generation with a PDF file that contains mixed text and images content
 * See [MusicWithContextService](src/main/java/com/spring/example_04_RAG/RichDocumentService.java) and [MusicWithContextServiceTest](src/test/java/com/spring/example_04_RAG/RichDocumentServiceTest.java)
 
 ## Using an in-memory Vector Database
 * See [BookService](src/main/java/com/spring/example_05_vector/BookService.java) and [BookServiceTest](src/test/java/com/spring/example_05_vector/BookServiceTest.java)
+
+## usage of Callback Functions
+* See [WeatherAggregatorService](src/main/java/com/spring/example_06_function/WeatherAggregatorService.java) and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_06_function/WeatherAggregatorServiceTest.java)
+
 
 ## Using a local model
 * Install Ollama and run it locally
