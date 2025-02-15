@@ -1,4 +1,4 @@
-package com.spring.example_06_function;
+package com.spring.example_06_tool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ class WeatherAggregatorService {
 
     public String aggregateWeatherData(String input) {
         var response = this.chatClient.prompt("What's the weather like in San Francisco, Tokyo, and Paris?")
-                .functions("currentWeather") // Enable the function
+                .tools(new MockWeatherService()) // Enable the function
                 .call().
                 content();
 

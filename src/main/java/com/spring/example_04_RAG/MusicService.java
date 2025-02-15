@@ -35,7 +35,7 @@ class MusicService {
         TikaDocumentReader tikaDocumentReader = new TikaDocumentReader(this.rockAlbumsResource);
         List<Document> documents = tikaDocumentReader.read();
 
-        return documents.stream().map(Document::getContent).collect(Collectors.joining("\n\n"));
+        return documents.stream().map(Document::getFormattedContent).collect(Collectors.joining("\n\n"));
 
     }
 

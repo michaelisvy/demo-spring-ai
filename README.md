@@ -23,8 +23,8 @@
 ## Using an in-memory Vector Database
 * See [BookService](src/main/java/com/spring/example_05_vector/BookService.java) and [BookServiceTest](src/test/java/com/spring/example_05_vector/BookServiceTest.java)
 
-## usage of Callback Functions
-* See [WeatherAggregatorService](src/main/java/com/spring/example_06_function/WeatherAggregatorService.java) and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_06_function/WeatherAggregatorServiceTest.java)
+## usage of Tools (agents / functions)
+* See [WeatherAggregatorService](src/main/java/com/spring/example_06_tool/WeatherAggregatorService.java) and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_06_tool/WeatherAggregatorServiceTest.java)
 
 
 ## Using a local model
