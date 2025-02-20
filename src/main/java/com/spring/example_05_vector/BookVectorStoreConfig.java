@@ -25,7 +25,7 @@ class BookVectorStoreConfig {
 
     public static final int NUMBER_OF_TOKENS_PER_VECTOR = 350;
     private final String VECTOR_STORE_FILE = "vectorstore.json";
-    @Value("classpath:book/murderer-in-paris.txt")
+    @Value("classpath:example_05_vector/murderer-in-paris.txt")
     private Resource bookContent;
 
     @Value("${spring.ai.openai.chat.options.model}")

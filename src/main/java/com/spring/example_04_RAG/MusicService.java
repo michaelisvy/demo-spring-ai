@@ -18,11 +18,11 @@ class MusicService {
     private static final Logger logger = LoggerFactory.getLogger(MusicService.class);
 
 
-    @Value("classpath:document/rock-albums.pdf")
+    @Value("classpath:example_04_RAG/rock-albums.pdf")
     // replace it with @Value("classpath:music/rock-albums.pdf") in order to test reading from a PDF file
     private Resource rockAlbumsResource;
 
-    @Value("classpath:document/template.st")
+    @Value("classpath:example_04_RAG/template.st")
     private Resource template;
 
     private ChatClient chatClient;

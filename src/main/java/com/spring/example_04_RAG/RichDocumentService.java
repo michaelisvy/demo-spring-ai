@@ -18,10 +18,10 @@ class RichDocumentService {
     private static final Logger logger = LoggerFactory.getLogger(RichDocumentService.class);
 
 
-    @Value("classpath:document/slides-sample-diagrams.pdf")
+    @Value("classpath:example_04_RAG/slides-sample-diagrams.pdf")
     private Resource documentResource;
 
-    @Value("classpath:document/template.st")
+    @Value("classpath:example_04_RAG/template.st")
     private Resource template;
 
     private ChatClient chatClient;

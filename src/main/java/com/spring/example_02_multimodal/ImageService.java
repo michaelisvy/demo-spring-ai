@@ -9,7 +9,7 @@ import org.springframework.util.MimeTypeUtils;
 @Service
 class ImageService {
 
-    @Value("classpath:images/singapore-weather.png")
+    @Value("classpath:example_02_multimodal/singapore-weather.png")
     private Resource imageResourceWeather;
 
     private final ChatClient chatClient;
