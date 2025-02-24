@@ -26,6 +26,9 @@
 ## usage of Tools (agents / functions)
 * See [WeatherAggregatorService](src/main/java/com/spring/example_06_tool/WeatherAggregatorService.java) and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_06_tool/WeatherAggregatorServiceTest.java)
 
+## usage of MCP to read file names from the file system
+* See [WeatherAggregatorService](src/main/java/com/spring/example_07_mcp/McpService.java)  and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_07_mcp/McpServiceTest.java)
+
 
 ## Using a local model
 * Install Ollama and run it locally
