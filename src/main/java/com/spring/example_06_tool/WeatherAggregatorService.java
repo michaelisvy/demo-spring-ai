@@ -22,7 +22,7 @@ class WeatherAggregatorService {
 
     public String aggregateWeatherData(String input) {
         var response = this.chatClient.prompt("What's the weather like in San Francisco, Tokyo, and Paris?")
-                .tools(new MockWeatherService()) // Enable the function
+                .tools(new MockWeatherService()) // Enable the tool
                 .call().
                 content();
 
