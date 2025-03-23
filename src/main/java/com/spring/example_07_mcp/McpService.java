@@ -1,15 +1,26 @@
 package com.spring.example_07_mcp;
 
+import io.modelcontextprotocol.client.McpClient;
+import io.modelcontextprotocol.client.McpSyncClient;
+import io.modelcontextprotocol.client.transport.ServerParameters;
+import io.modelcontextprotocol.client.transport.StdioClientTransport;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
+
+import java.io.File;
+import java.time.Duration;
 
 @Service
 class McpService {
 
     private final ChatClient chatClient;
 
-    public McpService(ChatClient.Builder builder, FileExploringService fileExploringService) {
-        this.chatClient = builder.defaultTools(fileExploringService).build();
+    public McpService(ChatClient chatClient) {
+        this.chatClient = chatClient;
     }
 
     public String promptQuestion() {
@@ -21,5 +32,26 @@ class McpService {
                 .user(prompt)
                 .call()
                 .content();
+    }
+}
+
+@Configuration
+class McpConfig {
+    @Bean ChatClient chatClient(ChatClient.Builder builder, McpSyncClient mcpSyncClient) {
+        var tools = new SyncMcpToolCallbackProvider(mcpSyncClient);
+        return builder.defaultTools(tools).build();
+    }
+
+    @Bean
+    McpSyncClient mcpSyncClient(@Value("classpath:example_07_mcp") File root) {
+        var stdioParameters = ServerParameters
+                .builder("npx")
+                .args("-y", "@modelcontextprotocol/server-filesystem", root.getAbsolutePath())
+                .build();
+        var mcp = McpClient.sync(new StdioClientTransport(stdioParameters))
+                .requestTimeout(Duration.ofMinutes(1))
+                .build();
+        mcp.initialize();
+        return mcp;
     }
 }
