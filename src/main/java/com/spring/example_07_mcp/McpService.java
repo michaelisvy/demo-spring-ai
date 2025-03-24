@@ -35,6 +35,10 @@ class McpService {
     }
 }
 
+/**
+ * Loads a file server using Node.js and the Model Context Protocol.
+ * Allows the LLM to access one folder inside your filesystem
+ */
 @Configuration
 class McpConfig {
     @Bean ChatClient chatClient(ChatClient.Builder builder, McpSyncClient mcpSyncClient) {
