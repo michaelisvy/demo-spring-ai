@@ -2,17 +2,19 @@ package com.spring.example_03_chatMemory;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
-import org.springframework.ai.chat.memory.InMemoryChatMemory;
+import org.springframework.ai.chat.memory.ChatMemory;
+import org.springframework.ai.chat.memory.MessageWindowChatMemory;
+import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.stereotype.Service;
-
-import static org.springframework.ai.chat.client.advisor.AbstractChatMemoryAdvisor.CHAT_MEMORY_CONVERSATION_ID_KEY;
 
 @Service
 class ChatMemoryService {
     private final ChatClient chatClient;
-    public ChatMemoryService(ChatClient.Builder builder) {
-        this.chatClient = builder
-                .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))
+    public ChatMemoryService(ChatClient.Builder builder, ChatModel chatModel) {
+        ChatMemory chatMemory = MessageWindowChatMemory.builder().build();
+
+        this.chatClient = ChatClient.builder(chatModel)
+                .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .build();
     }
     public String promptQuestionWithChatMemory(String message) {
@@ -25,7 +27,7 @@ class ChatMemoryService {
     public String promptQuestionWithChatMemoryAndConversationId(String message, String conversationId) {
         return chatClient.prompt()
                 .user(message)
-                .advisors(spec -> spec.param(CHAT_MEMORY_CONVERSATION_ID_KEY, conversationId))
+                .advisors(spec -> spec.param(ChatMemory.CONVERSATION_ID, conversationId))
                 .call()
                 .content();
     }

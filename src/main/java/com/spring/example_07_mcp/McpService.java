@@ -43,7 +43,7 @@ class McpService {
 class McpConfig {
     @Bean ChatClient chatClient(ChatClient.Builder builder, McpSyncClient mcpSyncClient) {
         var tools = new SyncMcpToolCallbackProvider(mcpSyncClient);
-        return builder.defaultTools(tools).build();
+        return builder.defaultToolCallbacks(tools).build();
     }
 
     @Bean
