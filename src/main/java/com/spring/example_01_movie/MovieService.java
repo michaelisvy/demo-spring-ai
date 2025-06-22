@@ -31,6 +31,7 @@ public class MovieService {
                 .content();
     }
 
+    // single entity
     public Movie findMovie(String message) {
         return this.chatClient.prompt()
                 .user(message)
@@ -38,6 +39,7 @@ public class MovieService {
                 .entity(Movie.class);
     }
 
+    // multiple entities
     public List<Movie> findMovieList(String message) {
         return this.chatClient.prompt()
                 .user(message)
@@ -54,6 +56,7 @@ public class MovieService {
                 .stream().content();
     }
 
+    // prompt with parameter
     public String recommendMovie(String topic) {
         return this.chatClient.prompt()
                 .user(user -> user.text("Can you recommend a movie about about {topic}")

@@ -6,6 +6,7 @@ import io.modelcontextprotocol.client.transport.ServerParameters;
 import io.modelcontextprotocol.client.transport.StdioClientTransport;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,7 @@ class McpService {
 
     private final ChatClient chatClient;
 
-    public McpService(ChatClient chatClient) {
+    public McpService(@Qualifier("chatClientWithMcp") ChatClient chatClient) {
         this.chatClient = chatClient;
     }
 
@@ -41,7 +42,7 @@ class McpService {
  */
 @Configuration
 class McpConfig {
-    @Bean ChatClient chatClient(ChatClient.Builder builder, McpSyncClient mcpSyncClient) {
+    @Bean ChatClient chatClientWithMcp(ChatClient.Builder builder, McpSyncClient mcpSyncClient) {
         var tools = new SyncMcpToolCallbackProvider(mcpSyncClient);
         return builder.defaultToolCallbacks(tools).build();
     }

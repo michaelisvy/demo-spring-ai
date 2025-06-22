@@ -17,6 +17,7 @@ class ChatMemoryService {
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .build();
     }
+    // shared across all conversations, not very useful
     public String promptQuestionWithChatMemory(String message) {
         return chatClient.prompt()
                 .user(message)
@@ -24,6 +25,7 @@ class ChatMemoryService {
                 .content();
     }
 
+    // conversations are independent of each other
     public String promptQuestionWithChatMemoryAndConversationId(String message, String conversationId) {
         return chatClient.prompt()
                 .user(message)

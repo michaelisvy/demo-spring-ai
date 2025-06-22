@@ -35,7 +35,6 @@ class BookVectorStoreConfig {
 
     @Bean
     VectorStore vectorStore(EmbeddingModel embeddingModel) throws IOException {
-        logger.info("Embedding Model: {}", embeddingModel.toString());
         var simpleVectorStore = SimpleVectorStore.builder(embeddingModel).build();
         var vectorStoreFile = getVectorStoreFile();
         if (vectorStoreFile.exists()) {
