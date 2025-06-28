@@ -34,7 +34,7 @@ class ExchangeRateServiceTest {
     @Test
     void shouldGetExchangeRate() {
         var response = this.chatClient.prompt()
-                .user( "I have 1000 Euros and I am in London for one week. Would that be enough for a 3-star hotel in the city and food expenses?" )
+                .user( "I have 1000 Euros and I am in London for one week. Would that be enough for me to stay in a 3-star hotel in the city and cover food expenses?" )
                 .call()
                 .content();
         assertThat(response).isNotEmpty();
