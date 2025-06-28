@@ -3,6 +3,7 @@ package com.spring.example_04_RAG;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.tika.TikaDocumentReader;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +29,8 @@ class MusicService {
     private ChatClient chatClient;
 
     public MusicService(ChatClient.Builder builder) {
-        this.chatClient = builder.build();
+        this.chatClient = builder.defaultAdvisors(new SimpleLoggerAdvisor())
+                                 .build();
     }
 
     private String loadDocumentText() {

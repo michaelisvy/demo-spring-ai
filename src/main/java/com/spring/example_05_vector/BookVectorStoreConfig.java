@@ -9,19 +9,22 @@ import org.springframework.ai.transformer.splitter.TextSplitter;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.SimpleVectorStore;
 import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 @Configuration
 class BookVectorStoreConfig {
+
+    @Autowired
+    private ResourceLoader resourceLoader;
 
     public static final int NUMBER_OF_TOKENS_PER_VECTOR = 350;
     private final String VECTOR_STORE_FILE = "vectorstore.json";
@@ -64,9 +67,8 @@ class BookVectorStoreConfig {
         return new TokenTextSplitter(numberOfTokensPerVector, 350, 5, 10000, true);
     }
 
-    private File getVectorStoreFile() {
-        Path path = Paths.get( "src", "main", "resources");
-        String absolutePath = path.toFile().getAbsolutePath() + "/" + VECTOR_STORE_FILE;
-        return new File(absolutePath);
+    private File getVectorStoreFile() throws IOException {
+        Resource resource = resourceLoader.getResource("classpath:" + VECTOR_STORE_FILE);
+        return resource.getFile();
     }
 }
