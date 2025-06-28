@@ -1,4 +1,4 @@
-package com.spring.example_06_tool;
+package com.spring.example_06_tool_mock;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

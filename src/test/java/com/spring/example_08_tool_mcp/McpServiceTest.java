@@ -1,4 +1,4 @@
-package com.spring.example_07_mcp;
+package com.spring.example_08_tool_mcp;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

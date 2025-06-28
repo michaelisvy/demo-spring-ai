@@ -23,11 +23,14 @@
 ## Using an in-memory Vector Database
 * See [BookService](src/main/java/com/spring/example_05_vector/BookService.java) and [BookServiceTest](src/test/java/com/spring/example_05_vector/BookServiceTest.java)
 
-## usage of Tools (agents / functions)
-* See [WeatherAggregatorService](src/main/java/com/spring/example_06_tool/WeatherAggregatorService.java) and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_06_tool/WeatherAggregatorServiceTest.java)
+## usage of Tools (agents / functions) with mock tool
+* See [WeatherAggregatorService](src/main/java/com/spring/example_06_tool_mock/WeatherAggregatorService.java) and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_06_tool_mock/WeatherAggregatorServiceTest.java)
+* 
+## usage of Tools (agents / functions) with a real tool calling an API
+* See [ExchangeRateTools](src/main/java/com/spring/example_07_tool_api_call/ExchangeRateTools) and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_07_tool_api_call/ExchangeRateToolsTest.java)
 
 ## usage of MCP to read file names from the file system
-* See [WeatherAggregatorService](src/main/java/com/spring/example_07_mcp/McpService.java)  and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_07_mcp/McpServiceTest.java)
+* See [WeatherAggregatorService](src/main/java/com/spring/example_08_tool_mcp/McpService.java)  and [WeatherAggregatorServiceTest](src/test/java/com/spring/example_08_tool_mcp/McpServiceTest.java)
 
 
 ## Using a local model

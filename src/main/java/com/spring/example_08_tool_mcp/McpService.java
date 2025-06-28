@@ -1,4 +1,4 @@
-package com.spring.example_07_mcp;
+package com.spring.example_08_tool_mcp;
 
 import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.McpSyncClient;

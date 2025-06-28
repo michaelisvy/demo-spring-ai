@@ -1,4 +1,4 @@
-package com.spring.example_06_tool;
+package com.spring.example_06_tool_mock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
