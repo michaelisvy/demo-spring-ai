@@ -23,10 +23,9 @@ public class MovieService {
                             .build();
     }
 
-    public String generateSimpleResponse(String message) {
+    public String generateSimpleResponse() {
         return this.chatClient.prompt()
-                .system("You are a helpful assistant writing in formal English")
-                .user(message)
+                .user("What are the 10 best movies of all time?")
                 .call()
                 .content();
     }

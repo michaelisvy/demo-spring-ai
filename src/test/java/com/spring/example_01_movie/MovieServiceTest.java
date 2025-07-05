@@ -20,9 +20,7 @@ public class MovieServiceTest {
 
     @Test
     public void shouldMakeSimpleCall() {
-        var input = "What are the 10 best movies of all time?";
-        var output = this.movieService.generateSimpleResponse(input);
-        this.logger.info(input);
+        var output = this.movieService.generateSimpleResponse();
         this.logger.info(output);
         assertThat(output).isNotEmpty();
     }

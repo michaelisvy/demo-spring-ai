@@ -44,11 +44,13 @@ class MusicService {
     public String findAlbumsFromArtist() {
         var text = loadDocumentText();
         logger.info(text);
-        return this.chatClient.prompt()
+        return this.chatClient
+                .prompt()
                 .user(userSpec -> userSpec.text(this.template)
                         .param("context", text)
                         .param("question", "Which are the albums from Foo Fighters?")
                 )
-                .call().content();
+                .call()
+                .content();
     }
 }
