@@ -4,6 +4,7 @@ import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.McpSyncClient;
 import io.modelcontextprotocol.client.transport.ServerParameters;
 import io.modelcontextprotocol.client.transport.StdioClientTransport;
+import io.modelcontextprotocol.json.McpJsonMapper;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
@@ -54,10 +55,8 @@ class McpConfig {
                 .builder("npx")
                 .args("-y", "@modelcontextprotocol/server-filesystem", root.getAbsolutePath())
                 .build();
-        var mcp = McpClient.sync(new StdioClientTransport(stdioParameters))
-                .requestTimeout(Duration.ofMinutes(1))
+        return McpClient.sync(new StdioClientTransport(stdioParameters, McpJsonMapper.createDefault()))
+                .requestTimeout(Duration.ofSeconds(10))
                 .build();
-        mcp.initialize();
-        return mcp;
     }
 }

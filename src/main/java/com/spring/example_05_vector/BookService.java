@@ -11,7 +11,7 @@ class BookService {
     private final ChatClient chatClient;
 
     public BookService(ChatClient.Builder builder, VectorStore vectorStore) {
-        this.chatClient = builder.defaultAdvisors(new SimpleLoggerAdvisor(), new QuestionAnswerAdvisor(vectorStore)).build();
+        this.chatClient = builder.defaultAdvisors(new SimpleLoggerAdvisor(),  QuestionAnswerAdvisor.builder(vectorStore).build()).build();
     }
 
     public String answerQuestion(String question) {
